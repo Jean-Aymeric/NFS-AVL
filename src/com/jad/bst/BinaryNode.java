@@ -79,4 +79,15 @@ public class BinaryNode<T> {
             return this.getRight() == null ? null : this.getRight().getDataListByIndex(index);
         }
     }
+
+    public boolean isIndexExist(int index) {
+        if (this.getIndex() == index) {
+            return true;
+        }
+        if (this.getIndex() > index) {
+            return (this.getLeft() != null) && this.getLeft().isIndexExist(index);
+        } else {
+            return (this.getRight() != null) && this.getRight().isIndexExist(index);
+        }
+    }
 }
