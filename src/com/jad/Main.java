@@ -17,6 +17,11 @@ public class Main {
         }
 
         System.out.println(myBST.getIndexMap());
-        System.out.println(myBST.getDataListByIndex(1).toString());
+        for (int index = 0; index < 10; index++) {
+            if (myBST.isIndexExist(index)) {
+                System.out.println(index + " = " + myBST.getDataListByIndex(index).toString());
+            }
+        }
+
     }
 }

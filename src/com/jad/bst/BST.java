@@ -24,4 +24,8 @@ public class BST<T> {
     public String getIndexMap() {
         return (this.root == null) ? null : this.root.getIndexMap();
     }
+
+    public boolean isIndexExist(int index) {
+        return this.root != null && this.root.isIndexExist(index);
+    }
 }
