@@ -1,9 +1,5 @@
 package com.jad.bst;
 
-import java.awt.*;
-import java.util.List;
-import java.util.ListIterator;
-
 public class AVL<T> extends AbstractBST<T, AVLNode<T>> {
     @Override
     protected AVLNode<T> getNewNode(final int index, final T data) {
