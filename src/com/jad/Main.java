@@ -1,11 +1,12 @@
 package com.jad;
 
+import com.jad.bst.AVL;
 import com.jad.bst.BST;
 
 public class Main {
 
     public static void main(String[] args) {
-        BST<String> myBST = new BST<>();
+        AVL<String> myBST = new AVL<>();
 
         for(int i = 0; i < 20;i++) {
             int index = (int) (Math.random()*10);
