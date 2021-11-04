@@ -6,7 +6,7 @@ import com.jad.bst.BST;
 public class Main {
 
     public static void main(String[] args) {
-        AVL<String> myBST = new AVL<>();
+        AVL<String> myAVL = new AVL<>();
 
         for(int i = 0; i < 20;i++) {
             int index = (int) (Math.random()*10);
@@ -14,15 +14,16 @@ public class Main {
             for (int j = 0; j < (int) (Math.random() * 256); j++) {
                 data.append((char) (Math.random() * 26 + 65));
             }
-            myBST.addData(index, data.toString());
+            myAVL.addData(index, data.toString());
         }
 
-        System.out.println(myBST.getIndexMap());
+        System.out.println(myAVL.getIndexMap());
         for (int index = 0; index < 10; index++) {
-            if (myBST.isIndexExist(index)) {
-                System.out.println(index + " = " + myBST.getDataListByIndex(index).toString());
+            if (myAVL.isIndexExist(index)) {
+                System.out.println(index + " = " + myAVL.getDataListByIndex(index).toString());
             }
         }
-
+        System.out.println("Height : " + myAVL.getHeight());
+        System.out.println(myAVL.getAllBalanceFactors());
     }
 }

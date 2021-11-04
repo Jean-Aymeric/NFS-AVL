@@ -30,4 +30,20 @@ public abstract class AbstractBST<T, N extends AbstractBinaryNode<T, N>> {
     public final boolean isIndexExist(int index) {
         return this.root != null && this.root.isIndexExist(index);
     }
+
+    public final int getHeight(N node) {
+        return (node == null) ? 0 : 1 + Math.max(this.getHeight(node.getLeft()), this.getHeight(node.getRight()));
+    }
+
+    public final int getHeight() {
+        return this.getHeight(this.root);
+    }
+
+    protected final N getRoot() {
+        return this.root;
+    }
+
+    protected final void setRoot(N root) {
+        this.root = root;
+    }
 }
