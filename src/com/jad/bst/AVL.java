@@ -1,8 +1,8 @@
 package com.jad.bst;
 
 public class AVL<T> extends AbstractBST<T, AVLNode<T>> {
-    private static int left = 1;
-    private static int right = 2;
+    private static final int left = 1;
+    private static final int right = 2;
 
     @Override
     protected AVLNode<T> getNewNode(final int index, final T data) {
@@ -29,7 +29,7 @@ public class AVL<T> extends AbstractBST<T, AVLNode<T>> {
         return this.getAllBalanceFactorsByNode(this.getRoot());
     }
 
-    private final void rotate(AVLNode<T> pivot, int leftOrRight) {
+    private void rotate(AVLNode<T> pivot, int leftOrRight) {
         if ((this.getRoot() != null) && (pivot != null)
                 && (((leftOrRight == AVL.left) && (pivot.getRight() != null))
                     || ((leftOrRight == AVL.right) && (pivot.getLeft() != null))) ) {
