@@ -5,6 +5,11 @@ public class AVL<T> extends AbstractBST<T, AVLNode<T>> {
     private static final int right = 2;
 
     @Override
+    public void addDataExtended(final int index, final T data) {
+        this.equilibrate(index);
+    }
+
+    @Override
     protected AVLNode<T> getNewNode(final int index, final T data) {
         return new AVLNode<>(index, data);
     }
@@ -65,5 +70,35 @@ public class AVL<T> extends AbstractBST<T, AVLNode<T>> {
 
     public final void rotateRight(AVLNode<T> pivot) {
         this.rotate(pivot, AVL.right);
+    }
+
+    protected final void equilibrate(int index) {
+        AVLNode<T> node = this.getNodeByIndex(index);
+        while (node != null) {
+            this.equilibrateNodeIfNeeded(node);
+            node = node.getParent();
+        }
+    }
+
+    private void equilibrateNodeIfNeeded(AVLNode<T> node) {
+        int balanceFactor = this.getBalanceFactor(node);
+        if (Math.abs(balanceFactor) > 1) {
+            if (balanceFactor > 0) {
+                this.rotateChildNodeIfNeeded(node.getRight());
+                this.rotateLeft(node);
+            } else {
+                this.rotateChildNodeIfNeeded(node.getLeft());
+                this.rotateRight(node);
+            }
+        }
+    }
+
+    private void rotateChildNodeIfNeeded(AVLNode<T> child) {
+        int balanceFactor = this.getBalanceFactor(child);
+        if (balanceFactor > 0) {
+            this.rotateLeft(child);
+        } else if (balanceFactor < 0) {
+            this.rotateRight(child);
+        }
     }
 }

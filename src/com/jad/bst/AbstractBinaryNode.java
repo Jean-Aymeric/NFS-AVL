@@ -78,13 +78,21 @@ public abstract class AbstractBinaryNode<T, N extends AbstractBinaryNode<T, N>> 
     }
 
     public final ArrayList<T> getDataListByIndex(int index) {
-        if (this.getIndex() == index) {
-            return this.getDataList();
+        N node = this.getNodeByIndex(index);
+        return (node == null) ? null : node.getDataList();
+    }
+
+    public final N getNodeByIndex(int index) {
+        if ( (this.getLeft() != null) && (this.getLeft().getIndex() == index)) {
+            return this.getLeft();
+        }
+        if ( (this.getRight() != null) && (this.getRight().getIndex() == index)) {
+            return this.getRight();
         }
         if (this.getIndex() > index) {
-            return this.getLeft() == null ? null : this.getLeft().getDataListByIndex(index);
+            return this.getLeft() == null ? null : this.getLeft().getNodeByIndex(index);
         } else {
-            return this.getRight() == null ? null : this.getRight().getDataListByIndex(index);
+            return this.getRight() == null ? null : this.getRight().getNodeByIndex(index);
         }
     }
 
