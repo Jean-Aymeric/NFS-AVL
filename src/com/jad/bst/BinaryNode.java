@@ -8,7 +8,7 @@ public class BinaryNode<T> {
     private BinaryNode<T> left;
     private BinaryNode<T> right;
 
-    public BinaryNode(int index, T data) {
+    public BinaryNode(int index, final T data) {
         this.index = index;
         this.data = new ArrayList<>();
         this.data.add(data);
@@ -16,31 +16,31 @@ public class BinaryNode<T> {
         this.right = null;
     }
 
-    protected BinaryNode<T> getLeft() {
+    protected final BinaryNode<T> getLeft() {
         return left;
     }
 
-    protected void setLeft(final BinaryNode<T> left) {
+    protected final void setLeft(final BinaryNode<T> left) {
         this.left = left;
     }
 
-    protected BinaryNode<T> getRight() {
+    protected final BinaryNode<T> getRight() {
         return right;
     }
 
-    protected void setRight(final BinaryNode<T> right) {
+    protected final void setRight(final BinaryNode<T> right) {
         this.right = right;
     }
 
-    protected int getIndex() {
+    protected final int getIndex() {
         return index;
     }
 
-    public ArrayList<T> getDataList() {
+    public final ArrayList<T> getDataList() {
         return new ArrayList<>(this.data);
     }
 
-    public void addData(int index, T data) {
+    public final void addData(int index, final T data) {
         if (this.getIndex() == index) {
             this.data.add(data);
         } else if (this.getIndex() > index) {
@@ -58,7 +58,7 @@ public class BinaryNode<T> {
         }
     }
 
-    public String getIndexMap() {
+    public final String getIndexMap() {
         String stringToReturn = String.valueOf(this.getIndex());
         if (this.getLeft() != null) {
             stringToReturn += " -> (" + this.getLeft().getIndexMap() + ")";
@@ -69,7 +69,7 @@ public class BinaryNode<T> {
         return stringToReturn;
     }
 
-    public ArrayList<T> getDataListByIndex(int index) {
+    public final ArrayList<T> getDataListByIndex(int index) {
         if (this.getIndex() == index) {
             return this.getDataList();
         }
@@ -80,7 +80,7 @@ public class BinaryNode<T> {
         }
     }
 
-    public boolean isIndexExist(int index) {
+    public final boolean isIndexExist(int index) {
         if (this.getIndex() == index) {
             return true;
         }
