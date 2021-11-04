@@ -9,7 +9,7 @@ public class BST<T> {
         this.root = null;
     }
 
-    public void addData(int index, T data) {
+    public final void addData(int index, final T data) {
         if (this.root == null) {
             this.root = new BinaryNode<>(index, data);
         } else {
@@ -17,15 +17,15 @@ public class BST<T> {
         }
     }
 
-    public ArrayList<T> getDataListByIndex(int index) {
+    public final ArrayList<T> getDataListByIndex(int index) {
         return (this.root == null) ? null : this.root.getDataListByIndex(index);
     }
 
-    public String getIndexMap() {
+    public final String getIndexMap() {
         return (this.root == null) ? null : this.root.getIndexMap();
     }
 
-    public boolean isIndexExist(int index) {
+    public final boolean isIndexExist(int index) {
         return this.root != null && this.root.isIndexExist(index);
     }
 }
