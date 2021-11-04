@@ -39,11 +39,12 @@ public abstract class AbstractBST<T, N extends AbstractBinaryNode<T, N>> {
         return this.getHeight(this.root);
     }
 
-    protected final N getRoot() {
+    public final N getRoot() {
         return this.root;
     }
 
     protected final void setRoot(N root) {
         this.root = root;
     }
+
 }

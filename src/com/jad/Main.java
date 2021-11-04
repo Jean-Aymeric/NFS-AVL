@@ -23,7 +23,11 @@ public class Main {
                 System.out.println(index + " = " + myAVL.getDataListByIndex(index).toString());
             }
         }
-        System.out.println("Height : " + myAVL.getHeight());
-        System.out.println(myAVL.getAllBalanceFactors());
+        //System.out.println("Height : " + myAVL.getHeight());
+        //System.out.println(myAVL.getAllBalanceFactors());
+        myAVL.rotateRight(myAVL.getRoot());
+        System.out.println(myAVL.getIndexMap());
+        myAVL.rotateRight(myAVL.getRoot());
+        System.out.println(myAVL.getIndexMap());
     }
 }
